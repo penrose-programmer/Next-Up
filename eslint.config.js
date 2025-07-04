@@ -29,13 +29,5 @@ export default [
         { allowConstantExport: true },
       ],
     },
-    compilerOptions: {
-      module: "ESNext",
-      moduleResolution: "Bundler",
-      skipLibCheck: true,
-      paths: {
-        "@/*": ["./src/*"],
-      },
-    },
   },
 ];

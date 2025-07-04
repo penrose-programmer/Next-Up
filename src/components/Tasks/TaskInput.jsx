@@ -12,8 +12,8 @@ export default function TaskInput({ taskList, setTaskList }) {
   };
 
   return (
-    <button id="new-task" onClick={handleClick}>
+    <Button id="new-task" onClick={handleClick}>
       New Task
-    </button>
+    </Button>
   );
 }

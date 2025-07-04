@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Box, Heading } from "@chakra-ui/react";
 import TaskList from "../Tasks/TaskList";
 import TaskInput from "../Tasks/TaskInput";
 import "./App.css";
@@ -10,10 +11,12 @@ export default function App() {
   });
 
   return (
-    <div id="container">
-      <h1 id="tasks-header">Tasks</h1>
+    <Box id="container">
+      <Heading size="3xl" id="tasks-header">
+        Tasks
+      </Heading>
       <TaskList taskList={taskList} setTaskList={setTaskList} />
       <TaskInput taskList={taskList} setTaskList={setTaskList} />
-    </div>
+    </Box>
   );
 }

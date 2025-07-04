@@ -1,4 +1,4 @@
-import TaskList from "./TaskList";
+import { Box, Input } from "@chakra-ui/react";
 
 export default function Task({ task, taskList, setTaskList }) {
   function handleChange(event) {
@@ -14,13 +14,13 @@ export default function Task({ task, taskList, setTaskList }) {
   }
 
   return (
-    <div id="task-container">
-      <input
+    <Box id="task-container">
+      <Input
         type="checkbox"
         checked={task.completed}
         onChange={handleChange}
-      ></input>
+      ></Input>
       <label>{task.name}</label>
-    </div>
+    </Box>
   );
 }
