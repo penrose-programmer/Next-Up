@@ -1,10 +1,10 @@
-import { Box, Input } from "@chakra-ui/react";
+import { Box, Checkbox } from "@chakra-ui/react";
 
 export default function Task({ task, taskList, setTaskList }) {
-  function handleChange(event) {
+  function handleChange(field, value) {
     const updatedTasks = taskList.map((currentTask) =>
       currentTask.id === task.id
-        ? { ...currentTask, completed: event.target.checked }
+        ? { ...currentTask, [field]: value }
         : currentTask
     );
 
@@ -14,13 +14,25 @@ export default function Task({ task, taskList, setTaskList }) {
   }
 
   return (
-    <Box id="task-container">
-      <Input
-        type="checkbox"
+    <Box id="task-container" display="flex" flexDir="row">
+      <Checkbox.Root
         checked={task.completed}
-        onChange={handleChange}
-      ></Input>
-      <label>{task.name}</label>
+        onChange={(event) => handleChange("completed", event.target.value)}
+        colorPalette="yellow"
+        borderWidth="10x"
+      >
+        <Checkbox.HiddenInput />
+
+        <Checkbox.Control>
+          <Checkbox.Indicator />
+        </Checkbox.Control>
+
+        <Checkbox.Label></Checkbox.Label>
+      </Checkbox.Root>
+      <input
+        value={task.name}
+        onChange={(event) => handleChange("name", event.target.value)}
+      ></input>
     </Box>
   );
 }
